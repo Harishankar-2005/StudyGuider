@@ -1,0 +1,317 @@
+.page-head.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.planner-head-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.planner-progress {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.planner-progress::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--gradient-brand);
+}
+
+.planner-progress-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.planner-progress-text strong {
+  font-size: 17px;
+  font-family: var(--font-display);
+  color: #fff;
+}
+
+.planner-progress-text span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.progress-track.big {
+  height: 12px;
+  background: rgba(2, 6, 23, 0.55);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-track.big .progress-fill {
+  background: linear-gradient(90deg, #8b5cf6, #38bdf8, #34d399);
+  background-size: 200% 100%;
+  animation: gradient-pan 5s ease-in-out infinite alternate;
+}
+
+/* Revision focus */
+.focus-panel {
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  border-color: rgba(251, 113, 133, 0.3);
+}
+
+.focus-panel h3 {
+  font-size: 15.5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.focus-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+/* Toolbar */
+.planner-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.planner-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2, 6, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 9px 13px;
+  min-width: 220px;
+  color: var(--faint);
+}
+
+.planner-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 13.5px;
+  width: 100%;
+}
+
+/* Cards */
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.plan-card {
+  padding: 17px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+
+.plan-card.done {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.plan-card.locked {
+  opacity: 0.75;
+  border-style: dashed;
+}
+
+.task-check.large {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.task-check:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.task-check:disabled:hover {
+  transform: none;
+  border-color: rgba(148, 163, 255, 0.4);
+}
+
+.plan-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.plan-body strong {
+  font-size: 14.5px;
+}
+
+.plan-card.done .plan-body strong {
+  color: var(--faint);
+  text-decoration: line-through;
+}
+
+.plan-body small {
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.plan-crumb {
+  color: var(--faint) !important;
+  font-size: 12px !important;
+}
+
+.lock-note {
+  color: #fcd34d !important;
+  font-weight: 700;
+}
+
+.attempt-note {
+  color: #6ee7b7 !important;
+  font-weight: 700;
+}
+
+.plan-tags {
+  display: flex;
+  gap: 7px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.plan-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.delete-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--faint);
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-left: auto;
+  transition: color var(--dur-fast) ease, border-color var(--dur-fast) ease,
+    background var(--dur-fast) ease;
+}
+
+.delete-btn:hover {
+  color: #fda4af;
+  border-color: rgba(251, 113, 133, 0.4);
+  background: rgba(251, 113, 133, 0.1);
+}
+
+/* Attempt history + form inside mock modal */
+.attempt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attempt-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 9px 12px;
+  border-radius: 11px;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid var(--border-soft);
+  font-size: 13px;
+}
+
+.attempt-row strong {
+  color: #6ee7b7;
+  font-size: 15px;
+}
+
+.attempt-row span {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.attempt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Modal form */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.danger-link {
+  color: #fda4af;
+  align-self: flex-start;
+}
+
+.danger-link:hover {
+  background: rgba(251, 113, 133, 0.1);
+  color: #fecdd3;
+}
+
+@media (max-width: 800px) {
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .planner-search {
+    min-width: 0;
+  }
+
+  .focus-chips {
+    margin-left: 0;
+  }
+}
+
+/* Side-by-side form/date inputs would cramp below tablet widths. */
+@media (max-width: 560px) {
+  .modal-row {
+    grid-template-columns: 1fr;
+  }
+}

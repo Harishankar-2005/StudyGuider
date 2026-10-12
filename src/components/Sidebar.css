@@ -1,0 +1,268 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, rgba(17, 24, 54, 0.96), rgba(9, 13, 32, 0.98));
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 60;
+  padding: 20px 14px;
+  overflow: hidden;
+}
+
+.sidebar-glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(139, 92, 246, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.sidebar-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 4px 8px 16px;
+  border-bottom: 1px solid var(--border-soft);
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  color: #fff;
+  background: var(--gradient-brand);
+  background-size: 180% 180%;
+  animation: gradient-pan 6s ease-in-out infinite alternate;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text strong {
+  color: #fff;
+  font-size: 18px;
+  font-family: var(--font-display);
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sidebar-close {
+  display: none;
+  margin-left: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+}
+
+/* Streak mini-card */
+.streak-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  align-items: center;
+  margin-top: 14px;
+  padding: 13px 14px 15px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(251, 113, 133, 0.1));
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  flex-shrink: 0;
+}
+
+.streak-flame {
+  grid-row: span 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+  color: #fcd34d;
+  background: rgba(251, 191, 36, 0.16);
+  animation: glow-pulse 2.8s ease-in-out infinite;
+}
+
+.streak-card strong {
+  color: #fff;
+  font-size: 13.5px;
+}
+
+.streak-card small {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+
+.streak-bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.streak-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #fb7185);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
+}
+
+/* Nav */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 14px;
+  flex: 1;
+  /* The sidebar is fixed to the viewport height: on short screens the
+     nav scrolls internally so brand + streak + footer stay reachable. */
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 4px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  border: 1px solid transparent;
+  animation: rise-in 420ms var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+  transition: background var(--dur-fast) ease, color var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) ease,
+    box-shadow var(--dur-med) ease;
+}
+
+.nav-link:hover {
+  background: var(--surface-2);
+  color: #fff;
+  transform: translateX(3px);
+  border-color: var(--border-soft);
+}
+
+.nav-link.active {
+  background: linear-gradient(120deg, rgba(139, 92, 246, 0.28), rgba(56, 189, 248, 0.18));
+  border-color: rgba(139, 92, 246, 0.45);
+  color: #fff;
+  box-shadow: 0 6px 22px rgba(124, 58, 237, 0.35), inset 0 0 18px rgba(139, 92, 246, 0.12);
+}
+
+.nav-icon {
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: transform var(--dur-fast) var(--ease-spring);
+}
+
+.nav-link:hover .nav-icon {
+  transform: scale(1.15);
+}
+
+.nav-badge {
+  margin-left: auto;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.sidebar-footer {
+  margin-top: 14px;
+  flex-shrink: 0;
+}
+
+.upgrade-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 13px 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.upgrade-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--gradient-brand);
+}
+
+.upgrade-card strong {
+  color: #fff;
+  font-size: 13px;
+}
+
+.upgrade-card p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-105%);
+    transition: transform 260ms var(--ease-out);
+    width: 280px;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar-close {
+    display: grid;
+  }
+
+  .sidebar-overlay.visible {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 55;
+    animation: fade-in 200ms ease both;
+  }
+}

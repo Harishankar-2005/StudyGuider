@@ -1,0 +1,143 @@
+.finder-filters {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.finder-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(2, 6, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 11px 14px;
+  color: var(--faint);
+}
+
+.finder-search:focus-within {
+  border-color: rgba(139, 92, 246, 0.55);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.16);
+}
+
+.finder-search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  width: 100%;
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+
+.clear-btn:hover {
+  color: var(--text);
+}
+
+.chip-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.chip-line {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chip.sm {
+  padding: 8px 15px;
+  font-size: 12.5px;
+}
+
+.shortlist-note {
+  font-size: 12.5px;
+  color: #6ee7b7;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.college-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.college-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.college-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.college-card h3 {
+  color: #fff;
+  font-size: 17px;
+}
+
+.college-meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.college-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  background: rgba(2, 6, 23, 0.35);
+  border: 1px solid var(--border-soft);
+  border-radius: 11px;
+  padding: 10px 12px;
+}
+
+.college-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fcd34d;
+}
+
+@media (max-width: 1000px) {
+  .college-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .college-grid {
+    grid-template-columns: 1fr;
+  }
+}

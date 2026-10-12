@@ -1,0 +1,109 @@
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.5);
+  transition: transform var(--dur-med) var(--ease-spring);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.feature-icon.indigo {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+.feature-icon.teal {
+  background: linear-gradient(135deg, #0e7490, #22d3ee);
+  box-shadow: 0 6px 20px rgba(34, 211, 238, 0.4);
+}
+
+.feature-icon.green {
+  background: linear-gradient(135deg, #059669, #34d399);
+  box-shadow: 0 6px 20px rgba(52, 211, 153, 0.4);
+}
+
+.feature-icon.orange {
+  background: linear-gradient(135deg, #ea580c, #fbbf24);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+}
+
+.feature-icon.purple {
+  background: linear-gradient(135deg, #a21caf, #c084fc);
+  box-shadow: 0 6px 20px rgba(192, 132, 252, 0.4);
+}
+
+.feature-icon.pink {
+  background: linear-gradient(135deg, #e11d48, #fb7185);
+  box-shadow: 0 6px 20px rgba(251, 113, 133, 0.4);
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.feature-text strong {
+  font-size: 15px;
+  color: #fff;
+}
+
+.feature-text small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.feature-arrow {
+  margin-left: auto;
+  color: var(--faint);
+  font-size: 19px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  border: 1px solid transparent;
+  transition: transform var(--dur-med) var(--ease-out), color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease, background var(--dur-fast) ease;
+}
+
+.feature-card:hover .feature-arrow {
+  color: #fff;
+  transform: translateX(4px);
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+
+/* Light sweep across the card on hover */
+.feature-shine {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+.feature-card:hover .feature-shine {
+  left: 130%;
+}

@@ -1,0 +1,195 @@
+.subject-block {
+  margin-top: 18px;
+}
+
+.subject-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.subject-head strong {
+  font-size: 15px;
+  color: #fff;
+  font-family: var(--font-display);
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.chapter-chip {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 11px 12px;
+  border-radius: 13px;
+  border: 1px solid var(--border-soft);
+  background: rgba(2, 6, 23, 0.4);
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-spring), border-color var(--dur-fast) ease,
+    background var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+}
+
+.chapter-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  color: #fff;
+}
+
+.chapter-chip.selected {
+  background: linear-gradient(120deg, rgba(139, 92, 246, 0.28), rgba(56, 189, 248, 0.18));
+  border-color: rgba(139, 92, 246, 0.55);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(124, 58, 237, 0.35);
+}
+
+.chapter-check {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(148, 163, 255, 0.4);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #fff;
+  margin-top: 1px;
+}
+
+.chapter-chip.selected .chapter-check {
+  background: linear-gradient(135deg, #059669, #34d399);
+  border-color: transparent;
+}
+
+.chapter-chip strong {
+  display: block;
+  font-size: 13px;
+}
+
+.chapter-chip small {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.stepper.slim {
+  margin-top: 4px;
+  /* Chips may wrap to extra rows; the row itself must never force overflow. */
+  flex-wrap: wrap;
+}
+
+/* Fixed-size controls must never squeeze — only the chip group shrinks. */
+.stepper.slim > button {
+  flex-shrink: 0;
+}
+
+.stepper.slim .chip-line {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.review-stat {
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid var(--border-soft);
+  border-radius: 13px;
+  padding: 13px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-stat small {
+  font-size: 11.5px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.review-stat strong {
+  font-size: 21px;
+  font-family: var(--font-display);
+  color: #fff;
+}
+
+.review-rules {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.review-rules li {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+
+.review-rules svg {
+  color: var(--mint);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.review-error {
+  margin-top: 14px;
+  padding: 13px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fda4af;
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid rgba(251, 113, 133, 0.4);
+}
+
+.review-warn {
+  margin-top: 14px;
+  padding: 13px 15px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: #fcd34d;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+}
+
+@media (max-width: 760px) {
+  .chapter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Let the − / + controls drop below the minute chips on narrow screens. */
+  .stepper.slim {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+}
+
+/* Small phones: reclaim gaps/padding for the chips; text sizes untouched. */
+@media (max-width: 560px) {
+  .stepper.slim {
+    gap: 10px;
+    padding: 10px;
+  }
+}
